@@ -18,11 +18,11 @@ if [ ${LAZYMC_VERSION} = latest ]
 then
   LAZYMC_VERSION=$(wget -qO - https://api.github.com/repos/timvisee/lazymc/releases/latest | jq -r .tag_name)
 fi
-LAZYMC_URL="https://github.com/timvisee/lazymc/releases/download/$LAZYMC_VERSION/lazymc-$LAZYMC_VERSION-linux-x64"
+LAZYMC_URL="https://github.com/timvisee/lazymc/releases/download/$LAZYMC_VERSION/lazymc-$LAZYMC_VERSION-linux-x64-static"
 wget -O lazymc ${LAZYMC_URL}
 chmod +x lazymc
 
-# Generate lazymc.tom if necessary
+# Generate lazymc.toml if necessary
 if [ ! -e lazymc.toml ]
 then
   ./lazymc config generate
