@@ -65,6 +65,8 @@ fi
 
 # Update lazymc config command
 sed -i -e "s@command =.*@command = \"java -server ${JAVA_OPTS} -jar ${JAR_NAME} nogui\"@" lazymc.toml
+# Update lazymc config advertised version (which is commented out by default)
+sed -i -e "s@#version =.*@version = \"${MC_VERSION}\"@" lazymc.toml
 
 # Start server
 exec ./lazymc start
